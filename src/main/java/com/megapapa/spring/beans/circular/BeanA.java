@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class BeanA {
 
+    // If it would be constructor-injection this code will fail, because circular deps can be managed only in
+    // setter injection
     private BeanB beanB;
 
     public BeanB getBeanB() {
