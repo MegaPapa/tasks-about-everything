@@ -1,29 +1,18 @@
 package com.megapapa;
 
-import com.megapapa.sorts.MergeSort;
-import com.megapapa.sorts.QuickSort;
-import com.megapapa.tasks.SumOfTwoIntegersInArray;
+import com.megapapa.spring.beans.creation.ConfigurationCreatedBean;
+import com.megapapa.spring.beans.creation.DefaultConfigurationCreatedBean;
+import com.megapapa.spring.beans.creation.SimpleSpringConfiguration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.ArrayList;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
+@SpringBootApplication
 public class Application {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        var quickSort = new QuickSort();
-        IntStream.of(quickSort.sort(new int[]{45,12,85,32,89,39,69,44,42,1,6,8}))
-                .forEach(System.out::println);
-
-//        var sumOfTwo = new SumOfTwoIntegersInArray();
-//        var result = sumOfTwo.numberOfPairs(new int[]{0, 1, 3, 0}, 3);
-//        System.out.println(result);
-
-//        var mergeSort = new MergeSort();
-//        var sortedArray = mergeSort.sort(new int[]{45,12,85,32,89,39,69,44,42,1,6,8});
-//
-//        IntStream.of(sortedArray)
-//                .forEach(System.out::println);
+        var context = SpringApplication.run(Application.class);
+        Thread.sleep(3000);
+        System.out.println(context.getBean(DefaultConfigurationCreatedBean.class));
     }
 }
