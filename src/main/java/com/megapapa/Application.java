@@ -14,5 +14,7 @@ public class Application {
     public static void main(String[] args) throws InterruptedException {
 
         var context = SpringApplication.run(Application.class);
+        var bean = context.getBean(SimpleSpringConfiguration.class);
+        System.out.println(bean);
     }
 }
